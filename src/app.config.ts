@@ -1,11 +1,12 @@
 export default {
-  pages: [
-    'pages/index/index'
-  ],
+  pages: ["pages/index/index"],
   window: {
-    backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    backgroundTextStyle: "light",
+    navigationBarBackgroundColor: "#3963bc",
+    navigationBarTitleText: "车辆管理系统",
+    navigationBarTextStyle: "white",
+    useExtendedLib: {
+      weui: true
+    }
   }
-}
+};

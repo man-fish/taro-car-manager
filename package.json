@@ -4,7 +4,6 @@
   "private": true,
   "description": "A WeChat mini_program made by inno.",
   "templateInfo": {
-    "name": "vuex",
     "typescript": true,
     "css": "sass"
   },
