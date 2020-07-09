@@ -1,21 +1,12 @@
 <template>
-  <view class="index">
-    <NumberDisplay/>
-    <NumberSubmit/>
-  </view>
+  <view class="index"> fuck clound </view>
 </template>
 
 <script>
-import NumberDisplay from '../../components/NumberDisplay.vue'
-import NumberSubmit from '../../components/NumberSubmit.vue'
-
 export default {
-  name: 'Index',
-  components: {
-    NumberDisplay,
-    NumberSubmit
-  }
-}
+  name: "Index",
+  components: {}
+};
 </script>
 
 <style>
