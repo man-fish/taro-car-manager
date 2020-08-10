@@ -1,24 +1,20 @@
 import Taro from "@tarojs/taro";
 import config from "../configs/config";
-import BaseModel from "Base";
+import { IApiList } from "../interfaces/api";
 
-export class TokenModel extends BaseModel {
+export class TokenModel {
+  public api: IApiList;
   constructor() {
-    super();
-    super.api = {
+    this.api = {
       fetchToken: {
         url: config.baseUrl + "/wechat/login",
         method: "POST"
       }
     };
   }
-  static getToken(): string {
-    const token = Taro.getStorageSync("token");
-    return token ? token : "";
-  }
-  fetchToken(callback) {
+  fetchToken(callback?) {
     Taro.request({
-      url: super.api.fetchToken.url,
+      url: this.api.fetchToken.url,
       header: {
         "Content-Type": "application/json"
       },
@@ -35,9 +31,25 @@ export class TokenModel extends BaseModel {
             Taro.setStorageSync("token", token);
             Taro.setStorageSync("sys_info", sysInfo);
             callback && callback(token);
+          } else {
+            Taro.showToast({
+              title: "登录失败：" + res.data.msg,
+              duration: 2000,
+              icon: "none"
+            });
           }
+        } else {
+          Taro.showToast({
+            title: "请求失败：" + res.statusCode.toString(),
+            duration: 2000,
+            icon: "none"
+          });
         }
       }
     });
+  }
+  static getToken(): string {
+    const token = Taro.getStorageSync("token");
+    return token ? token : "";
   }
 }

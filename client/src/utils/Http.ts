@@ -3,10 +3,10 @@ import config from "../configs/config";
 
 import { TokenModel } from "../models/Token";
 
-import { IReponse } from "../interfaces/response";
+import { IResponse } from "../interfaces/response";
 
 export class Http {
-  request(url: string, method: string = "GET", data = {}): Promise<IReponse> {
+  request(url: string, method: string = "GET", data = {}): Promise<IResponse> {
     return new Promise((resolve, reject) => {
       this._request(url, method.toUpperCase(), data, resolve, reject);
     });
